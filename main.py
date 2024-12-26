@@ -6,13 +6,13 @@ import requests
 
 
 def shorten_link(url, token):
-    method = 'https://api.vk.com/method/utils.getShortLink'
+    short_link_method = 'https://api.vk.com/method/utils.getShortLink'
     payload = {
         'url': url,
         "access_token": token,
         'v': 5.199
     }
-    response = requests.get(method, params=payload)
+    response = requests.get(short_link_method, params=payload)
     response.raise_for_status()
     short_link_content = response.json()
     short_url = short_link_content['response']['short_url']
@@ -22,13 +22,13 @@ def shorten_link(url, token):
 def count_clicks(url, token):
     disassembled_link = urlparse(url)
     url = disassembled_link.path.replace('/', '')
-    method = 'https://api.vk.com/method/utils.getLinkStats'
+    link_stats_method = 'https://api.vk.com/method/utils.getLinkStats'
     payload = {
         'key': url,
         "access_token": token,
         'v': 5.199
     }
-    response = requests.get(method, params=payload)
+    response = requests.get(link_stats_method, params=payload)
     response.raise_for_status()
     click_statistics = response.json()
     number_of_clicks = click_statistics['response']['stats'][0]['views']
@@ -36,13 +36,13 @@ def count_clicks(url, token):
 
 
 def is_shorten_link(url, token):
-    method = 'https://api.vk.com/method/utils.checkLink'
+    check_link_method = 'https://api.vk.com/method/utils.checkLink'
     payload = {
         'url': url,
         "access_token": token,
         'v': 5.199
     }
-    response = requests.get(method, params=payload)
+    response = requests.get(check_link_method, params=payload)
     response.raise_for_status()
     link_status = response.json()
     checked_link = link_status['response']['link']
