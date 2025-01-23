@@ -1,3 +1,4 @@
+import argparse
 import os
 from urllib.parse import urlparse
 
@@ -50,14 +51,23 @@ def is_shorten_link(url, token):
     return checked_link != url
 
 
+def create_parser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('link', help='Ваша ссылка')
+
+    return parser
+
+
 def main():
     load_dotenv()
     token = os.environ['VK_SERVICE_TOKEN']
-    url = input('Введите ссылку для сокращения: ')
+    parser = create_parser()
+    args = parser.parse_args()
+    url = args.link
 
     try:
         if is_shorten_link(url, token):
-            print(count_clicks(url, token))
+            print('По вашей ссылке перешли', count_clicks(url, token), 'раз')
         else:
             print(shorten_link(url, token))
     except KeyError:
