@@ -5,7 +5,9 @@
 
 ### Как установить
 
-Для работы скрипта необходим [Сервисный ключ к API VK](https://id.vk.com/about/business/go/docs/en/vkid/latest/vk-id/connection/tokens/service-token)
+Для работы скрипта необходим [Сервисный ключ к API VK](https://id.vk.com/about/business/go/docs/en/vkid/latest/vk-id/connection/tokens/service-token).
+Необходимо создать `.env` файл, в котором будет храниться
+переменная окружения `VK_SERVICE_TOKEN` [Сервисный ключ к API VK](https://id.vk.com/about/business/go/docs/en/vkid/latest/vk-id/connection/tokens/service-token).
 
 [Python3](https://www.python.org/downloads/) должен быть уже установлен.
 Затем используйте `pip` (или `pip3`, есть конфликт с Python2)
