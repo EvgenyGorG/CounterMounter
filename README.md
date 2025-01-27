@@ -19,6 +19,16 @@ pip install -r requirements.txt
 Рекомендуется использовать [virtualenv/venv](https://docs.python.org/3/library/venv.html)
 для изоляции проекта.
 
+### Пример использования в консоли
+
+```
+>>> python main.py https://eldenring.wiki.fextralife.com/alenia+lade+of+iquella
+>>> https://vk.cc/cHTU33
+
+>>> python main.py https://vk.cc/c33
+>>> По вашей ссылке перешли 3 раз
+```
+
 ### Цель проекта
 
 Код написан в образовательных целях на онлайн-курсе
